@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "NerdCode Studio"
+version = "1.0.0"
+id = "artifacts/nerdcode-studio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24353
+
+[services.development]
+run = "pnpm --filter @workspace/nerdcode-studio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/nerdcode-studio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/nerdcode-studio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24353"
+BASE_PATH = "/"
