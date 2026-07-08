@@ -2,10 +2,10 @@ import { Github, MessageSquare, Mail, Twitter, ChevronRight } from "lucide-react
 
 export function Contact() {
   const links = [
-    { name: "GitHub", icon: <Github className="h-5 w-5" />, href: "#" },
-    { name: "Discord", icon: <MessageSquare className="h-5 w-5" />, href: "#" },
-    { name: "Email", icon: <Mail className="h-5 w-5" />, href: "#" },
-    { name: "Redes Sociais", icon: <Twitter className="h-5 w-5" />, href: "#" }
+    { name: "GitHub", icon: <Github className="h-5 w-5" />, href: null },
+    { name: "Discord", icon: <MessageSquare className="h-5 w-5" />, href: null },
+    { name: "Email", icon: <Mail className="h-5 w-5" />, href: "mailto:ygorfut41@gmail.com" },
+    { name: "Redes Sociais", icon: <Twitter className="h-5 w-5" />, href: null }
   ];
 
   return (
@@ -29,21 +29,37 @@ export function Contact() {
           <div>
             <h3 className="text-sm font-mono text-primary mb-6 tracking-wider uppercase">Conecte-se conosco</h3>
             <div className="grid sm:grid-cols-2 gap-4">
-              {links.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="flex items-center justify-between p-4 rounded-xl border border-border/50 bg-card hover:border-primary/50 transition-all group"
-                >
-                  <div className="flex items-center gap-3 font-medium text-foreground">
-                    <div className="text-muted-foreground group-hover:text-primary transition-colors">
-                      {link.icon}
+              {links.map((link) =>
+                link.href ? (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="flex items-center justify-between p-4 rounded-xl border border-border/50 bg-card hover:border-primary/50 transition-all group"
+                  >
+                    <div className="flex items-center gap-3 font-medium text-foreground">
+                      <div className="text-muted-foreground group-hover:text-primary transition-colors">
+                        {link.icon}
+                      </div>
+                      {link.name}
                     </div>
-                    {link.name}
+                    <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                  </a>
+                ) : (
+                  <div
+                    key={link.name}
+                    className="flex items-center justify-between p-4 rounded-xl border border-border/50 bg-card/50 opacity-60 cursor-default"
+                    aria-disabled="true"
+                  >
+                    <div className="flex items-center gap-3 font-medium text-muted-foreground">
+                      {link.icon}
+                      {link.name}
+                    </div>
+                    <span className="text-xs font-mono text-muted-foreground uppercase tracking-wider">
+                      Em breve
+                    </span>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-                </a>
-              ))}
+                )
+              )}
             </div>
           </div>
         </div>
