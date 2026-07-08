@@ -50,12 +50,9 @@ export function Contact() {
 
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-border/50 text-sm text-muted-foreground gap-4">
           <div className="flex items-center gap-3">
-            <img
-              src="/logo.png"
-              alt="NerdCode Studio"
-              className="h-5 object-contain opacity-70 hover:opacity-100 transition-opacity"
-              style={{ filter: "invert(1) brightness(2)" }}
-            />
+            <span className="font-bold opacity-70 hover:opacity-100 transition-opacity">
+              Nerd<span className="text-primary">Code</span> Studio
+            </span>
             <p>&copy; {new Date().getFullYear()} NerdCode Studio. Todos os direitos reservados.</p>
           </div>
           <div className="flex items-center gap-1">

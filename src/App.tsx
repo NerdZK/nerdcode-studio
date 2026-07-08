@@ -1,4 +1,3 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 
@@ -10,8 +9,6 @@ import { Projects } from '@/components/sections/Projects';
 import { Team } from '@/components/sections/Team';
 import { Manifesto } from '@/components/sections/Manifesto';
 import { Contact } from '@/components/sections/Contact';
-
-const queryClient = new QueryClient();
 
 function Home() {
   return (
@@ -32,12 +29,10 @@ function Home() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Home />
-        <Toaster />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <TooltipProvider>
+      <Home />
+      <Toaster />
+    </TooltipProvider>
   );
 }
 

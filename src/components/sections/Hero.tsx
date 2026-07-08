@@ -14,13 +14,13 @@ export function Hero() {
           System Online
         </div>
 
-        <div className="mb-8 p-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm animate-in fade-in zoom-in duration-700 delay-100 ease-out fill-mode-both">
-          <img 
-            src="/logo.png" 
-            alt="NerdCode Studio Logo" 
-            className="h-12 md:h-16 object-contain invert"
-            style={{ filter: "invert(1) brightness(2)" }} 
-          />
+        <div className="mb-8 px-6 py-4 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm animate-in fade-in zoom-in duration-700 delay-100 ease-out fill-mode-both">
+          <span className="text-2xl md:text-3xl font-bold tracking-tight">
+            Nerd<span className="text-primary">Code</span>
+          </span>
+          <span className="block text-xs font-mono text-muted-foreground tracking-[0.3em] uppercase text-center mt-1">
+            Studio
+          </span>
         </div>
         
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-200 ease-out fill-mode-both">

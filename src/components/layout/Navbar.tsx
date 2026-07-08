@@ -2,13 +2,13 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <img
-            src="/logo.png"
-            alt="NerdCode Studio"
-            className="h-7 object-contain"
-            style={{ filter: "invert(1) brightness(2)" }}
-          />
+        <a href="#hero" className="flex items-center gap-2 transition-opacity hover:opacity-80" aria-label="NerdCode Studio">
+          <span className="font-bold text-lg tracking-tight">
+            Nerd<span className="text-primary">Code</span>
+          </span>
+          <span className="hidden sm:inline text-xs font-mono text-muted-foreground tracking-wider uppercase">
+            Studio
+          </span>
         </a>
         <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
           <a href="#sobre" className="hover:text-foreground transition-colors">Sobre</a>
