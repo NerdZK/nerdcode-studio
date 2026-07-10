@@ -9,6 +9,7 @@ import { Projects } from '@/components/sections/Projects';
 import { Team } from '@/components/sections/Team';
 import { Manifesto } from '@/components/sections/Manifesto';
 import { Contact } from '@/components/sections/Contact';
+import { Admin } from '@/pages/admin';
 
 function Home() {
   return (
@@ -28,9 +29,11 @@ function Home() {
 }
 
 function App() {
+  const isAdmin = typeof window !== 'undefined' && window.location.pathname.startsWith('/admin');
+
   return (
     <TooltipProvider>
-      <Home />
+      {isAdmin ? <Admin /> : <Home />}
       <Toaster />
     </TooltipProvider>
   );

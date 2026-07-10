@@ -50,6 +50,29 @@ npm run preview
 
 ---
 
+## Painel administrativo (`/admin`)
+
+O site tem um painel privado em `/admin` para gerenciar os projetos exibidos na seção "Projetos", sem precisar editar código.
+
+### Variáveis de ambiente necessárias
+
+| Variável | Descrição |
+|---|---|
+| `DATABASE_URL` | String de conexão do PostgreSQL (dados dos projetos) |
+| `SESSION_SECRET` | Chave usada para assinar o token de sessão do admin |
+| `ADMIN_EMAIL` | Email autorizado a logar no painel |
+| `ADMIN_PASSWORD` | Senha do painel |
+
+No Replit, essas variáveis já estão configuradas. **Na Vercel**, adicione as mesmas em *Project Settings → Environment Variables* antes do deploy.
+
+### Rodando localmente
+
+`npm run dev` inicia dois processos: o servidor Vite (frontend) e um servidor Express local (`server/dev-server.ts`) que espelha as funções serverless de `api/` para desenvolvimento.
+
+Em produção na Vercel, cada arquivo em `api/` vira automaticamente uma função serverless.
+
+---
+
 ## Deploy na Vercel
 
 ### Opção 1 — Via interface da Vercel (recomendado)
@@ -82,6 +105,8 @@ vercel --prod
 
 ```
 nerdcode-studio/
+├── api/                # Funções serverless da Vercel (auth + CRUD de projetos)
+├── server/             # Lógica de backend compartilhada + servidor Express p/ dev local
 ├── public/             # Assets estáticos (favicon)
 ├── src/
 │   ├── components/
@@ -89,7 +114,8 @@ nerdcode-studio/
 │   │   ├── sections/   # Hero, About, Services, Projects, Team, Manifesto, Contact
 │   │   └── ui/         # Componentes shadcn/ui
 │   ├── hooks/          # Hooks utilitários
-│   ├── lib/            # Utilitários (cn, etc.)
+│   ├── lib/            # Utilitários (cn, api client)
+│   ├── pages/          # Painel admin (login + dashboard)
 │   ├── App.tsx         # Composição principal
 │   ├── main.tsx        # Entry point
 │   └── index.css       # Estilos globais + tokens de design

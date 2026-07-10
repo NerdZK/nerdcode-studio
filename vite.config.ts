@@ -50,6 +50,12 @@ export default defineConfig({
     strictPort: true,
     host: '0.0.0.0',
     allowedHosts: true,
+    proxy: {
+      '/api': {
+        target: `http://localhost:${Number(process.env.API_PORT) || 8787}`,
+        changeOrigin: true,
+      },
+    },
   },
   preview: {
     port,
